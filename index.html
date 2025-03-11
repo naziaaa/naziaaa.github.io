@@ -8,6 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
 
+        /* Base Styles */
         body {
             font-family: 'JetBrains Mono', monospace;
             background-color: #0F172A;
@@ -22,6 +23,8 @@
             margin: 0 auto;
             padding: 20px;
         }
+        
+        /* Header Styles */
         .title-container {
             background: linear-gradient(45deg, #1a1f35, #2d3748);
             border: 2px solid #6366F1;
@@ -65,6 +68,38 @@
             margin-top: 10px;
             font-style: italic;
         }
+        
+        /* Navigation */
+        nav {
+            background: rgba(26, 32, 44, 0.9);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #6366F1;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .nav-link {
+            color: #A5B4FC;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: #F7FAFC;
+        }
+        
+        /* Mission Statement */
         .mission-statement {
             background: rgba(99, 102, 241, 0.1);
             padding: 20px;
@@ -72,12 +107,20 @@
             margin: 20px 0;
             border-left: 4px solid #6366F1;
         }
+        
+        /* Section Titles */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             color: #6366F1;
-            margin-top: 30px;
-            font-size: 1.5em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            border-bottom: 2px solid #6366F1;
+            padding-bottom: 10px;
+            scroll-margin-top: 70px; /* For anchor links with sticky nav */
         }
+        
+        /* CLI Container */
         .cli-container {
             background-color: #1A202C;
             border: 1px solid #6366F1;
@@ -85,28 +128,6 @@
             margin: 30px 0;
             box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
             border-radius: 10px;
-        }
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .achievement-card {
-            background: rgba(26, 32, 44, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #6366F1;
-            transition: transform 0.3s ease;
-        }
-        .achievement-card:hover {
-            transform: translateY(-5px);
-        }
-        .stat-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2em;
-            color: #6366F1;
-            margin: 10px 0;
         }
         .cli-line {
             margin: 0;
@@ -126,6 +147,129 @@
             color: #A5B4FC;
             font-weight: bold;
         }
+        
+        /* About Me Section */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin: 30px 0;
+            align-items: start;
+        }
+        .profile-picture {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid rgba(34, 57, 110, 0.8);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+        .about-text {
+            background: rgba(20, 24, 33, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+        }
+        
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #6366F1;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+        .timeline-item {
+            margin-left: 50px;
+            margin-bottom: 30px;
+            position: relative;
+            background: rgba(26, 32, 44, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            left: -37px;
+            background-color: #6366F1;
+            border-radius: 50%;
+            top: 22px;
+            box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+        }
+        .timeline-date {
+            color: #A5B4FC;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .timeline-title {
+            margin: 0;
+            color: #F7FAFC;
+            font-size: 1.2em;
+        }
+        .timeline-subtitle {
+            margin-top: 5px;
+            color: #CBD5E0;
+            font-style: italic;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .project-card {
+            background: rgba(26, 32, 44, 0.8);
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #6366F1;
+        }
+        .project-content {
+            padding: 20px;
+        }
+        .project-title {
+            margin: 0 0 10px 0;
+            color: #F7FAFC;
+            font-size: 1.2em;
+        }
+        .project-description {
+            color: #CBD5E0;
+            margin-bottom: 15px;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            border: 1px solid #6366F1;
+        }
+        
+        /* Skills Section */
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -139,6 +283,168 @@
             font-size: 0.9em;
             border: 1px solid #6366F1;
         }
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .skills-category {
+            background: rgba(26, 32, 44, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+        }
+        .category-title {
+            color: #A5B4FC;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #6366F1;
+            padding-bottom: 8px;
+        }
+        .skill-bar-container {
+            height: 15px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .skill-bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #6366F1, #818CF8);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        .skill-name {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Publications Section */
+        .publications-list {
+            margin: 30px 0;
+        }
+        .publication-item {
+            background: rgba(26, 32, 44, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+            margin-bottom: 20px;
+        }
+        .publication-title {
+            margin-top: 0;
+            color: #F7FAFC;
+        }
+        .publication-journal {
+            color: #A5B4FC;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .publication-authors {
+            color: #CBD5E0;
+            margin-bottom: 10px;
+        }
+        .publication-link {
+            color: #6366F1;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid #6366F1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .publication-link:hover {
+            background-color: #6366F1;
+            color: #F7FAFC;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-container {
+            margin: 30px 0;
+        }
+        .testimonial {
+            background: rgba(26, 32, 44, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            font-size: 60px;
+            color: rgba(99, 102, 241, 0.2);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        .testimonial-text {
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            text-align: right;
+            color: #A5B4FC;
+            font-style: italic;
+        }
+        
+        /* Blog Section */
+        .blog-preview {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .blog-card {
+            background: rgba(26, 32, 44, 0.8);
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        .blog-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 20px;
+        }
+        .blog-date {
+            color: #A5B4FC;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        .blog-title {
+            color: #F7FAFC;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .blog-excerpt {
+            color: #CBD5E0;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .read-more {
+            color: #6366F1;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: inline-block;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .read-more:hover {
+            border-color: #6366F1;
+        }
+        
+        /* Contact Section */
         #connect-message {
             text-align: center;
             font-size: 18px;
@@ -170,6 +476,67 @@
             color: #F7FAFC;
             transform: translateY(-2px);
         }
+        .contact-form {
+            background: rgba(26, 32, 44, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #6366F1;
+            margin: 30px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #A5B4FC;
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #6366F1;
+            border-radius: 5px;
+            color: #F7FAFC;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: linear-gradient(90deg, #6366F1, #818CF8);
+            color: #F7FAFC;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #6366F1;
+        }
+        .footer-text {
+            color: #A5B4FC;
+            font-size: 0.9em;
+        }
+        .footer-heart {
+            color: #EF4444;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Animations */
         @keyframes glare {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -179,25 +546,71 @@
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Utility Classes */
         .highlight {
             color: #6366F1;
             font-weight: bold;
         }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            #name-output {
+                font-size: 36px;
+            }
+            .nav-container {
+                gap: 10px;
+            }
+            .nav-link {
+                padding: 5px 10px;
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) {
+            #name-output {
+                font-size: 30px;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <!-- <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#publications" class="nav-link">Publications</a> -->
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
     <div class="container">
+        <!-- Header Section -->
         <div class="title-container">
             <h1 id="name-output">Nazia Naved</h1>
-            <p class="tagline">Making Machines Listen, Understand, and Respond! </p>
+            <p class="tagline">Making Machines Listen, Understand, and Respond!</p>
         </div>
 
-
+        <!-- Mission Statement -->
         <div class="mission-statement">
             Exploring the crossroads of AI and neuroscience—because AI without neuroscience is just artificial nonsense!
         </div>
 
-       
+        <!-- Interactive CLI Section -->
         <div class="cli-container">
             <p class="cli-line"><span class="cli-prompt">$</span> ./initialize_portfolio.sh</p>
             <p class="cli-line">Loading AI & ML expertise...</p>
@@ -208,104 +621,210 @@
             <p class="cli-line" id="skills-output"></p>
         </div>
 
-        
-        <div id="connect-message">
-            <p>Let’s build AI that doesn’t just ‘think’—but actually understands us (or at least pretends convincingly). Whether you need a research partner, AI consulting, or just want to geek out over AI/ML or something delusional, I’m all ears—until AGI takes over my inbox!</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/nazia-naved/" class="social-link" target="_blank">LinkedIn</a>
-                <a href="https://medium.com/@tnazia377" class="social-link" target="_blank">Medium</a>
-                <a href="https://x.com/nazia_naved" class="social-link" target="_blank">Twitter</a>
-                <a href="mailto:tnazia377@gmail.com" class="social-link">Email</a>
+        <!-- About Section -->
+        <h2 id="about" class="section-title">// About Me</h2>
+        <div class="about-section">
+            <div class="profile-container">
+                <img src="./photo.gif" alt="Nazia Naved" class="profile-picture">
+            </div>
+            <div class="about-text">
+                <p>Hello! I'm <span class="highlight">Nazia Naved</span>, an AI & ML Engineer specializing in developing systems that bring us closer to AGI. With a background in both computer science and cognitive neuroscience, I approach AI development with a unique understanding of how intelligence might actually work.</p>
+                <p>My research focuses on creating adaptive learning systems that can understand human cognitive states and respond appropriately. I believe that the path to more effective AI systems lies in better understanding how our own minds function.</p>
+                <p>When I'm not training neural networks or optimizing algorithms, you can find me reading neuroscience papers, hiking in nature, or participating in AI safety workshops. I'm passionate about developing AI that serves humanity ethically and effectively.</p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <h2 id="experience" class="section-title">// Experience & Education</h2>
+        <div class="timeline">
+            <!-- Professional Experience -->
+            <div class="timeline-item">
+                <div class="timeline-date">Oct 2024 - Present</div>
+                <h3 class="timeline-title">AGI Research Engineer</h3>
+                <p class="timeline-subtitle">Stealth Startup</p>
+                <p>Leading research initiatives in developing neural architectures that mimic human cognitive processes. Focused on reinforcement learning systems with improved generalization capabilities across diverse tasks.</p>
             </div>
             
+            <div class="timeline-item">
+                <div class="timeline-date">July 2023 - Oct 2024</div>
+                <h3 class="timeline-title">Machine Learning Engineer</h3>
+                <p class="timeline-subtitle">AiVerbalyze Technologies Pvt. Ltd.</p>
+                <p>Designed and deployed AI-powered agents utilizing LLaMA 8B and 70B models. Implemented RAG architecture for document retrieval systems enabling natural conversations with content. Engineered voice-based AI agents integrating with CRM systems and optimized response latency from 8 seconds to 0.5 seconds.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">May 2023 - July 2023</div>
+                <h3 class="timeline-title">ML Intern</h3>
+                <p class="timeline-subtitle">Hindustan Aeronautics Limited</p>
+                <p>Developed speech-to-text AI systems for transcribing conversational data. Implemented NLP techniques to extract features from audio data, improving model accuracy for interaction systems.</p>
+            </div>
+            
+            <!-- Education -->
+            <div class="timeline-item">
+                <div class="timeline-date">2021 - 2023</div>
+                <h3 class="timeline-title">Masters in Computer Application</h3>
+                <p class="timeline-subtitle">Harcourt Butler Technical University</p>
+                <p>Graduated with 8.87 CGPA. Focused on artificial intelligence and machine learning applications.</p>
+            </div>
+        </div>
+<!-- 
+        Projects Section -->
+ 
+<!-- Blog Section -->
+<h2 id="blog" class="section-title">// Blog & Thoughts</h2>
+<div class="blog-preview">
+    <div class="blog-card">
+        <!-- <img src="/api/placeholder/400/250" alt="Blog Post Image" class="blog-image"> -->
+        <div class="blog-content">
+            <p class="blog-date">March 5, 2025</p>
+            <h3 class="blog-title">Why Neuroscience Holds the Key to Better AI</h3>
+            <p class="blog-excerpt">Exploring how insights from human cognition can lead to more robust and generalizable artificial intelligence systems. The convergence of neuroscience and AI is creating promising new avenues for research...</p>
+            <a href="https://medium.com/@tnazia377/why-neuroscience-holds-the-key-to-better-ai-16648abfc42a" class="read-more">Read Full Article</a>
         </div>
     </div>
+    
+    <div class="blog-card">
+        <!-- <img src="/api/placeholder/400/250" alt="Blog Post Image" class="blog-image"> -->
+        <div class="blog-content">
+            <p class="blog-date">February 12, 2025</p>
+            <h3 class="blog-title">Microsoft Phi-4 Mini: The Small AI Model with Big Capabilities</h3>
+            <p class="blog-excerpt">Analyzing how Microsoft's compact Phi-4 Mini model achieves impressive performance despite its smaller size, and what this means for the future of efficient AI deployment...</p>
+            <a href="https://medium.com/@tnazia377/microsoft-phi-4-mini-the-small-ai-model-with-big-capabilities-b66f6caa331f" class="read-more">Read Full Article</a>
+        </div>
+    </div>
+    
+    <div class="blog-card">
+        <!-- <img src="/api/placeholder/400/250" alt="Blog Post Image" class="blog-image"> -->
+        <div class="blog-content">
+            <p class="blog-date">January 20, 2025</p>
+            <h3 class="blog-title">Are We Training AI or Is AI Training Us?</h3>
+            <p class="blog-excerpt">Examining the bidirectional relationship between humans and AI systems, and how our interactions with AI are subtly reshaping human behavior and cognition...</p>
+            <a href="https://medium.com/@tnazia377/are-we-training-ai-or-is-ai-training-us-af333eb8f12a" class="read-more">Read Full Article</a>
+        </div>
+    </div>
+</div>
 
-    <script>
-        function typeWriter(text, elementId, delay = 10) {
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    document.getElementById(elementId).innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, delay);
-                }
+    <!-- Contact Section -->
+    <h2 id="contact" class="section-title">// Let's Connect</h2>
+    <div id="connect-message">
+        <p>Let's build AI that doesn't just 'think'—but actually understands us (or at least pretends convincingly). Whether you need a research partner, AI consulting, or just want to geek out over AI/ML or something delusional, I'm all ears—until AGI takes over my inbox!</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/nazia-naved/" class="social-link" target="_blank">LinkedIn</a>
+            <a href="https://medium.com/@tnazia377" class="social-link" target="_blank">Medium</a>
+            <a href="https://x.com/nazia_naved" class="social-link" target="_blank">Twitter</a>
+            <a href="mailto:tnazia377@gmail.com" class="social-link">Email</a>
+        </div>
+    </div>
+    
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">© 2025 Nazia Naved. Crafted with <span class="footer-heart">♥</span> and probably too much coffee.</p>
+    </footer>
+</div>
+
+<script>
+    // Typing effect for CLI sections
+    function typeWriter(text, elementId, delay = 10) {
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                document.getElementById(elementId).innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, delay);
             }
-            type();
         }
+        type();
+    }
 
-        setTimeout(() => {
-            typeWriter("AGI Research Engineer | AI/ML Engineer", "specialization-output");
-        }, 2000);
+    setTimeout(() => {
+        typeWriter("AGI Research Engineer | AI/ML Engineer", "specialization-output");
+    }, 2000);
 
-        setTimeout(() => {
-            typeWriter("Adaptive Learning Systems, Cognitive State Detection, Machine Learning & Deep Learning, Neural Networks, Reinforcement Learning, Intelligent Tutoring Systems, AI Ethics & Safety", "skills-output");
-        }, 3500);
+    setTimeout(() => {
+        typeWriter("Adaptive Learning Systems, Cognitive State Detection, Machine Learning & Deep Learning, Neural Networks, Reinforcement Learning, Intelligent Tutoring Systems, AI Ethics & Safety", "skills-output");
+    }, 3500);
 
-        gsap.from("#name-output", {
-            duration: 2,
-            opacity: 0,
-            scale: 0.5,
-            ease: "elastic.out(1, 0.3)",
+    // GSAP Animations
+    gsap.from("#name-output", {
+        duration: 2,
+        opacity: 0,
+        scale: 0.5,
+        ease: "elastic.out(1, 0.3)",
+    });
+
+    gsap.from(".tagline", {
+        duration: 1,
+        opacity: 0,
+        y: 20,
+        ease: "power2.out",
+        delay: 1
+    });
+
+    gsap.from(".mission-statement", {
+        duration: 1.5,
+        opacity: 0,
+        x: -50,
+        ease: "power3.out",
+        delay: 1.5
+    });
+
+    gsap.from(".cli-container", {
+        duration: 1.5,
+        opacity: 0,
+        y: 50,
+        ease: "power3.out",
+        delay: 0.5
+    });
+
+    // ScrollTrigger animations for other sections
+    document.addEventListener('DOMContentLoaded', function() {
+        // Animate skill bars when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-bar');
+                    bars.forEach(bar => {
+                        const width = bar.getAttribute('data-width') + '%';
+                        bar.style.width = width;
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsCategories = document.querySelectorAll('.skills-category');
+        skillsCategories.forEach(category => {
+            observer.observe(category);
         });
-
-        gsap.from(".tagline", {
-            duration: 1,
-            opacity: 0,
-            y: 20,
-            ease: "power2.out",
-            delay: 1
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for fixed nav
+                    behavior: 'smooth'
+                });
+            });
         });
-
-        gsap.from(".mission-statement", {
-            duration: 1.5,
-            opacity: 0,
-            x: -50,
-            ease: "power3.out",
-            delay: 1.5
-        });
-
-        gsap.from(".cli-container", {
-            duration: 1.5,
-            opacity: 0,
-            y: 50,
-            ease: "power3.out",
-            delay: 0.5
-        });
-
-        gsap.from(".achievement-card", {
-            duration: 1,
-            opacity: 0,
-            y: 30,
-            stagger: 0.2,
-            ease: "power2.out",
-            delay: 2.5
-        });
-
-        gsap.from(".tech-item", {
-            duration: 0.5,
-            opacity: 0,
-            y: 20,
-            stagger: 0.1,
-            ease: "power2.out",
-            delay: 3
-        });
-
-        gsap.from("#connect-message", {
-            duration: 1,
-            opacity: 0,
-            y: 30,
-            ease: "power2.out",
-            delay: 4
-        });
-
-        gsap.from(".social-links", {
-            duration: 1,
-            opacity: 0,
-            y: 20,
-            ease: "power2.out",
-            delay: 4.5
-        });
-    </script>
+        
+        // Simple form submission handling
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real implementation, you would send the form data to your server
+                // For demo purposes, just show an alert
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+    });
+</script>
 </body>
 </html>
